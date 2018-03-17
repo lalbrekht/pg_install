@@ -34,7 +34,7 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]            
 then              
   scripts/pg_install.sh ${PG_VER}                                   
-  scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL}                 
+    scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL}                 
 else              
   echo "NO!"      
 fi 
