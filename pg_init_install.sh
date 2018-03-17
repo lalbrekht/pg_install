@@ -33,8 +33,8 @@ read -p "Are you sure want to continue? " -n 1 -r
 echo    # (optional) move to a new line                                   
 if [[ $REPLY =~ ^[Yy]$ ]]            
 then              
-  /root/scripts/pg_install.sh ${PG_VER}                                   
-  /root/scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL}                 
+  scripts/pg_install.sh ${PG_VER}                                   
+  scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL}                 
 else              
   echo "NO!"      
 fi 
