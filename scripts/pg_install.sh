@@ -22,7 +22,7 @@ make world -j6 && [ `id -un` = "root" ] && \
 make install-world || sudo make install-world || exit 1                   
 
 # set PATH to profile enviroment     
-cat > /etc/profile.d/postgresql.sh << EOF                                  
+cat << EOF > /etc/profile.d/postgresql.sh                                 
 export PATH=\$PATH:/opt/postgresql-$PG_VER/bin
 export MANPATH=\$MANPATH:/opt/postgresql-$PG_VER/share/man                        
 export LD_LIBRARY_PATH=/opt/postgresql-$PG_VER/lib:\$LD_LIBRARY_PATH              
