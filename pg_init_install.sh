@@ -28,7 +28,7 @@ echo "PostgreSQL version is $PG_VER"
 
 PG_REL=${PG_VER%.*}                  
 PG_DATA=${TARGET_DIR}/pgsql/${PG_REL}                                     
-PG_LC=en_EN.UTF-8
+PG_LC=ru_RU.UTF-8
 
 read -p "Are you sure want to continue? " -n 1 -r                         
 echo    # (optional) move to a new line                                   
