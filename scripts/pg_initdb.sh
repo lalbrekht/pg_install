@@ -7,7 +7,7 @@ PG_ENCODING=${PG_LC##*.}
 
 echo "Initialize DB server"
 
-cr_db_cmd="/opt/postgresql-$PG_VER/bin/initdb -D ${PG_DATA} -E ${PG_ENCODING} --locale=${PG_LC} --lc-collate=${PG_LC} --lc-ctype=${PG_LC}"
+cr_db_cmd="/opt/postgresql-$PG_VER/bin/initdb -D ${PG_DATA}"
 su postgres -c "${cr_db_cmd}" || exit 1
 
 exit 0  
