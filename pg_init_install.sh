@@ -7,12 +7,13 @@ if ! which $1 > /dev/null 2>&1; then
 fi                
 }                 
 
+echo "Installing packages:"
 #Cicle for installing packages       
 for item in readline-devel libxml2-devel libxslt-devel wget tmux bzip2 git gcc make flex bison jade            
 do                
-  pkg $item       
+  pkg $item
+  echo &item       
 done              
-
 echo -e "Packages installed!"        
 
 TARGET_DIR=$1     
@@ -34,7 +35,8 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]            
 then              
   scripts/pg_install.sh ${PG_VER}                                   
-    scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL}                 
+  scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL}
+  scripts/pg_initdb.sh ${PG_DATA} ${PG_LC}
 else              
   echo "NO!"      
 fi 
