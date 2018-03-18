@@ -2,6 +2,7 @@
 
 PG_DATA=${PG_DATA:-$1}
 PG_LC=${PG_LC:-$2}
+PG_VER=${PG_VER:-$3}
 PG_ENCODING=${PG_LC##*.}
 
 echo "Initialize DB server"
