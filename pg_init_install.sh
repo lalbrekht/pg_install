@@ -37,6 +37,7 @@ then
   scripts/pg_install.sh ${PG_VER}                                   
   scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL}
   scripts/pg_initdb.sh ${PG_DATA} ${PG_LC} ${PG_VER}
+  scripts/pg_systemd_unit.sh ${PG_VER} ${PG_DATA}
 else              
   echo "NO!"      
 fi 
