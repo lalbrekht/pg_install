@@ -12,7 +12,7 @@ echo "Installing packages:"
 for item in readline-devel libxml2-devel libxslt-devel wget tmux bzip2 git gcc make flex bison jade            
 do                
   pkg $item
-  echo &item       
+  echo $item       
 done              
 echo -e "Packages installed!"        
 
@@ -36,7 +36,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then              
   scripts/pg_install.sh ${PG_VER}                                   
   scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL}
-  scripts/pg_initdb.sh ${PG_DATA} ${PG_LC}
+  scripts/pg_initdb.sh ${PG_DATA} ${PG_LC} $PG_VER
 else              
   echo "NO!"      
 fi 
