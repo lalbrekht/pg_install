@@ -59,4 +59,14 @@ mkdir -p $PGDATA $PGLOG $PGARCH $PGWAL $PGWALBACKUP && \
 chown -R postgres:postgres $PGDATA $PGARCH $PGLOG $PGWAL $PGWALBACKUP && \
 chmod 0700 $PGDATA || exit 1         
 
+cat << EOF >> $PG_HOME/postgres/.bash_profile
+#PostgreSQL environment variables
+PGDATA="$PG_DATA"
+PGUSER=postgres
+PGLOG="$PG_LOG"
+
+export PGDATA
+export PGUSER
+export PGLOG
+EOF
 exit 0
