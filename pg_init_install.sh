@@ -69,6 +69,9 @@ else
   echo "Aborting installation!"      
 fi 
 
+#Copy configs
+cp configs/* ${PG_DATA}
+
 echo
 echo "-----------------------"
 echo "Now you can start database sevice with:"                                   
