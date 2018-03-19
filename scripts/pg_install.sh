@@ -21,12 +21,12 @@ cd $pg_name && \
 make world -j6 && [ `id -un` = "root" ] && \                              
 make install-world || sudo make install-world || exit 1                   
 
-# set PATH to profile enviroment     
-cat << EOT > /etc/profile.d/postgresql.sh                                 
+# set PATH to profile enviroment
+cat > /etc/profile.d/postgresql.sh << EOF
 export PATH=\$PATH:/opt/postgresql-$PG_VER/bin
 export MANPATH=\$MANPATH:/opt/postgresql-$PG_VER/share/man                        
 export LD_LIBRARY_PATH=/opt/postgresql-$PG_VER/lib:\$LD_LIBRARY_PATH              
 export PSQL_EDITOR="vim"
 export PAGER="less"
 export LESS="-iMSx4 -FX"             
-EOT 
+EOF 
