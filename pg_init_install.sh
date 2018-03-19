@@ -1,5 +1,27 @@
 #!/bin/bash       
 
+if [[ $1 == '--help' ]] || [[ $1 == '-h' ]] || [[ $1 == '/?' ]]; then
+
+      echo
+      echo HELP:
+      echo
+      echo --------------------------------------------------------
+      echo
+      echo " Use: "
+      echo " ./pg_run_install.sh [db_target_path] [full_ver] [locale] "
+      echo " for create postgres user and database directories"
+      echo
+      echo " Example: ./pg_run_install.sh /pgdata 9.6.4 en_US.UTF-8"
+      echo " By default locale set to ru_RU"
+      echo
+      echo " Use parameter --help or -h or /? for view this help"
+      echo
+      echo --------------------------------------------------------
+     
+      exit 0
+
+fi
+
 #Install package if its not found on system                               
 function pkg {    
 if ! which $1 > /dev/null 2>&1; then 
@@ -42,7 +64,14 @@ then
   scripts/pg_install.sh ${PG_VER} && \                                   
   scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL} && \
   scripts/pg_initdb.sh ${PG_DATA} ${PG_LC} ${PG_VER} && \
-  scripts/pg_systemd_unit.sh ${PG_VER} ${PG_DATA}
+  scripts/pg_systemd_unit.sh ${PG_VER} ${PG_DATA}  
 else              
   echo "Aborting installation!"      
 fi 
+
+echo
+echo "-----------------------"
+echo "Now you can start database sevice with:"                                   
+echo "systemctl start postgresql.service" 
+echo "-----------------------"
+echo
