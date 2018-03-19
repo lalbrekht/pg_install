@@ -3,7 +3,7 @@
 #Install package if its not found on system                               
 function pkg {    
 if ! which $1 > /dev/null 2>&1; then 
-   yum install -y $1  > /dev/null 2>&1                                    
+   yum install -y $1  > /dev/null 2>&1                                 
 fi                
 }                 
 
@@ -30,7 +30,7 @@ echo "-----------------------"
 
 PG_REL=${PG_VER%.*}                  
 PG_DATA=${TARGET_DIR}/pgsql/${PG_REL}                                     
-PG_LC=ru_RU.UTF-8
+PG_LC=${3:-ru_RU.UTF-8}
 
 read -p "Are you sure want to continue? (y/n): " -n 1 -r                         
 echo    # (optional) move to a new line                                   
