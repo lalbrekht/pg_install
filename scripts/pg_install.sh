@@ -19,7 +19,7 @@ tar -zxf $pg_nametar && \
 cd $pg_name && \
 ./configure --prefix=/opt/$pg_name with_libxml=yes with_libxslt=yes && \
 make world -j6 && [ `id -un` = "root" ] && \                              
-make install-world || sudo make install-world || exit 1                   
+make install-world || sudo make install-world || exit 1
 
 # set PATH to profile enviroment
 cat > /etc/profile.d/postgresql.sh << EOF
@@ -29,4 +29,4 @@ export LD_LIBRARY_PATH=/opt/postgresql-$PG_VER/lib:\$LD_LIBRARY_PATH
 export PSQL_EDITOR="vim"
 export PAGER="less"
 export LESS="-iMSx4 -FX"             
-EOF 
+EOF

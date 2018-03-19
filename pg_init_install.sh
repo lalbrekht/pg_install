@@ -36,9 +36,9 @@ read -p "Are you sure want to continue? (y/n): " -n 1 -r
 echo    # (optional) move to a new line                                   
 if [[ $REPLY =~ ^[Yy]$ ]]            
 then              
-  scripts/pg_install.sh ${PG_VER}                                   
-  scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL}
-  scripts/pg_initdb.sh ${PG_DATA} ${PG_LC} ${PG_VER}
+  scripts/pg_install.sh ${PG_VER} && \                                   
+  scripts/pg_user_create.sh ${TARGET_DIR} ${PG_REL} && \
+  scripts/pg_initdb.sh ${PG_DATA} ${PG_LC} ${PG_VER} && \
   scripts/pg_systemd_unit.sh ${PG_VER} ${PG_DATA}
 else              
   echo "Aborting installation!"      
