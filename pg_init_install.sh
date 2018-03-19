@@ -23,15 +23,18 @@ export TARGET_DIR
 PG_VER=$2         
 [ "${PG_VER}" ] || { echo "ERR: Varible PG_VER is not defined!" >&2; exit 1; }              
 
-echo "-----------------------"
-echo "Install directory is $TARGET_DIR"                                   
-echo "PostgreSQL version is $PG_VER" 
-echo "-----------------------"
-
 PG_REL=${PG_VER%.*}                  
 PG_DATA=${TARGET_DIR}/pgsql/${PG_REL}                                     
 PG_LC=${3:-ru_RU.UTF-8}
 
+echo
+echo "-----------------------"
+echo "Install directory is: $TARGET_DIR"                                   
+echo "PostgreSQL version is: $PG_VER" 
+echo "Locale: $PG_LC"
+echo "-----------------------"
+
+echo
 read -p "Are you sure want to continue? (y/n): " -n 1 -r                         
 echo    # (optional) move to a new line                                   
 if [[ $REPLY =~ ^[Yy]$ ]]            
