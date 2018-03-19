@@ -61,9 +61,9 @@ chmod 0700 $PGDATA || exit 1
 
 cat << EOF >> $PG_HOME/postgres/.bash_profile
 #PostgreSQL environment variables
-PGDATA="$PG_DATA"
+PGDATA=${PG_DATA}
 PGUSER=postgres
-PGLOG="$PG_LOG"
+PGLOG=${PG_LOG}
 
 export PGDATA
 export PGUSER
